@@ -24,12 +24,14 @@ router.post("/add", async (req, res) => {
     const {
       annoncementOwner,
       annoncementDescription,
+      annoncementLocation,
       annoncementPicture,
-      
+      annoncementExpo
     } = req.body;
     const newAnnonce = new annonce({
       annoncementOwner,
       annoncementDescription,
+      annoncementLocation,
       annoncementPicture,
       annoncementExpo : new Date()
     });
@@ -64,6 +66,7 @@ router.put("/editAnnonce/:_id", async (req, res) => {
     const {
       annoncementOwner,
       annoncementDescription,
+      annoncementLocation,
       annoncementPicture,
       annoncementExpo,
     } = req.body;

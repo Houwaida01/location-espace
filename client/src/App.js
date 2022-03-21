@@ -36,7 +36,7 @@ function App() {
         <Route path='/user/signin' element={<SigninUser/>} />
         <Route path='/addannonce' element={<AddAnnonce/>} />
         <Route path='/deleteannonce' element={<DeleteAnnonc/>} />
-        <Route path='/editannonce' element={<EditAnnonce/>} />
+        <Route path='/editannonce/:id' element={<EditAnnonce/>} />
         <Route path='/profileuser' element={<ProfileUser/>} />
         
     {/* admin */}

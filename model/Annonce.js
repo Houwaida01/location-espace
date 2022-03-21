@@ -11,6 +11,10 @@ const annonceSchema = new Schema({
     type: "string",
     required: true,
   },
+  annoncementLocation: {
+    type: "string",
+    required: true,
+  },
   annoncementPicture: {
     type: "string",
     required: true,
