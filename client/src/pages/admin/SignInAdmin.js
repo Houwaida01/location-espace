@@ -25,7 +25,7 @@ function SignInAdmin() {
     }}>
          <div className="Container">
       <form>
-        <h2> Hello Amin </h2>
+        <h2> Hello Admin </h2>
         <label>Email</label>
     <input type="email" placeholder="Enter Your Email" name="email" onChange={handleChange} />
 

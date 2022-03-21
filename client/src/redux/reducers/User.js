@@ -2,7 +2,7 @@ import { FAIL, GET_ANNONCE, LOAD, LOG_OUT, SIGN_IN, SIGN_UP } from "../actions t
 
 const initialState = {
     user: [],
-    annonceList: {},
+    annonceList: [],
     load: false,
     errors: [],
     isAuthuser: false,
@@ -18,12 +18,12 @@ const initialState = {
         localStorage.setItem("token", payload.token);
         return { ...state, load: false, user: payload.user, isAuthuser: true };
         case GET_ANNONCE:
-          return { ...state, load: false, user: payload.user  };
+          return { ...state, load: false, annonceList: payload.annonceList  };
       case LOG_OUT:
         localStorage.removeItem("token");
         return {
           user: [],
-          annonceList: {},
+          annonceList: [],
           load: false,
           errors: [],
           isAuthuser: false,

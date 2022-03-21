@@ -85,7 +85,7 @@ router.get("/",async(req,res)=>{
     try {
       const {_id}=req.params
       const deleteAnnonce=await annonce.deleteOne({_id})  
-      return res.status(200).send({msg:"the annonce deleted",deleteAnnonce})
+      return res.status(200).send({msg:"the annonce deleted",deleteAnnonce}) 
     } catch (error) {
        return res.status(400).send({msg:"can not deleted annonce",error}) 
     }

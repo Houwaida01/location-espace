@@ -12,13 +12,13 @@ import SigninUser from './pages/user/SigninUser';
 import Error from './pages/Error';
 import SignInAdmin from './pages/admin/SignInAdmin';
 import EditUser from './pages/admin/EditUser';
-import DeleteUser from './pages/admin/DeleteUser';
 import AddUser from './pages/admin/AddUser';
 import DeleteAnnonce from './pages/admin/DeleteAnnonce';
 import AddAnnonce from './pages/user/AddAnnonce';
 import EditAnnonce from './pages/user/EditAnnonce';
 import DeleteAnnonc from './pages/user/DeleteAnnonc';
 import ProfileUser from './pages/user/ProfileUser';
+import ListUsers from './pages/admin/ListUsers';
 
 function App() {
   return (
@@ -41,8 +41,8 @@ function App() {
         
     {/* admin */}
         <Route path='/admin/signin' element={<SignInAdmin/>} />
-        <Route path='/edituser' element={<EditUser/>} />
-        <Route path='/deleteuser' element={<DeleteUser/>} />
+        <Route path='/edituser/:id' element={<EditUser/>} />
+        <Route path='/listuser' element={<ListUsers/>} />
         <Route path='/adduser' element={<AddUser/>} />
         <Route path='/deleteannonce' element={<DeleteAnnonce/>} />
         <Route path='/profile' element={<Profile/>} />

@@ -2,7 +2,7 @@ import { FAIL, GET_USER, LOAD, LOG_OUT, SIGN_IN } from "../actions types/Admin";
 
 const initialState = {
   admin: [],
-  userList: {},
+  userList: [],
   load: false,
   errors: [],
   isAuth: false,
@@ -16,7 +16,7 @@ const adminReducer = (state = initialState, { type, payload }) => {
       localStorage.setItem("token", payload.token);
       return { ...state, load: false, admin: payload.admin, isAuth: true };
       case GET_USER:
-        return { ...state, load: false, admin: payload.admin  };
+        return { ...state, load: false, userList: payload.userList  };
     // case SIGN_UP:
     //   localStorage.setItem("token", payload.token);
     //   return { ...state, load: false, admin: payload.admin, isAuth: true };
