@@ -72,13 +72,6 @@ const Signup = () => {
                     </Link>
                 </form>
             </div>
-
-            <div style={{ textAlign: "center" }}>
-                <p>If you have already account click here!!</p>
-                <Link to="/profile">
-                    <Button>S'identifier</Button>
-                </Link>
-            </div>
         </div>
     );
 };

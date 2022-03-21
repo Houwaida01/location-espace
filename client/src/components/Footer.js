@@ -18,9 +18,7 @@ const Footer = () => {
                                 50180977
                                 <br />
                                 <span>Email:</span>
-                                <a href="houwaida.bennassib1@gmail.com">
-                                    
-                                </a>
+                                <a href="houwaida.bennassib1@gmail.com">houwaida.bennassib1@gmail.com</a>
                             </address>
                         </p>
                         <p style={{fontSize:"17px", color: "#FFE4C4" }}>
