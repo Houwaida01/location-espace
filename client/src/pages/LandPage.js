@@ -5,9 +5,12 @@ function LandPage() {
   return (
     <div>
             <h1 style={{ color: "#012a4a" , textAlign:"center"}}>
-                
-                Bienvenue au ?. <hr/>
-            </h1>
+                Bienvenue sur notre site 
+                </h1>
+                <h2 style={{ color: "pink" , textAlign:"center"}}>  Location des espaces libre <hr/> </h2>
+            <p style={{paddingLeft:"100px", paddingRight:"100px"}}> Créée en 2022, apporte une offre de services immobiliers , efficace, personnalisée et innovante 
+                aux utilisateurs et propriétaires qui souhaitent louer, investir, optimiser des actifs immobiliers :
+                 commerces - bureaux - locaux d'activités. </p>
             <h2 style={{paddingLeft:"100px", paddingRight:"100px"}}>
                 <li>Louer le bien qui me ressemble</li>   
             </h2>

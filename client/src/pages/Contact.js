@@ -3,21 +3,22 @@ import { Container, Row, Col } from "react-bootstrap";
 function Contact() {
   return (
       <div>
-          <h4
+          <h2
               style={{
                   textAlign: "center",
-                  fontSize: "30px",
+                  fontSize: "40px",
+                  fontWeight: "bold",
                   color: "steelblue",
                   paddingTop: "50px",
               }}
           >
               Contact
-          </h4>
+          </h2>
+          <h4 style={{textAlign: "center",fontSize: "23px",fontWeight: "bold",color: "steelblue"}}> N’hésitez pas à me contacter, même pour un simple renseignement… </h4>
           <div
               style={{
                   textAlign: "left",
                   paddingBottom: "50px",
-                  fontSize: "20px",
                   fontWeight: "900px",
                   paddingLeft: "70px",
               }}
@@ -25,21 +26,23 @@ function Contact() {
               <ul>
                   <li>
                       {" "}
-                      <span>Adresse:</span>
-                     Tunis, Soukra
+                      <span style={{fontSize: "25px", padding:"10px", color: "skyblue", fontWeight:"bold"}} >Adresse :</span>
+                      37 Avenue de l'UMA
+                      <br/>
+                      La Soukra 2036 Ariana Tunisie
                   </li>
 
                   <br />
                   <li>
                       {" "}
-                      <span>Telephone:</span>
+                      <span style={{fontSize: "25px", padding:"10px", color: "skyblue", fontWeight:"bold"}}>Telephone :</span>
                       (216) 50 180 977
                   </li>
 
                   <br />
                   <li>
                       {" "}
-                      <span>Email:</span>
+                      <span style={{fontSize: "25px", padding:"10px", color: "skyblue", fontWeight:"bold"}}>Email :</span>
                       <a href="houwaida.bennassib1@gmail.com">houwaida.bennassib1@gmail.com</a>
                   </li>
               </ul>
@@ -50,9 +53,10 @@ function Contact() {
                       {" "}
                       <img
                           alt=""
-                          src=""
+                          src="https://img.over-blog-kiwi.com/2/24/46/04/20170127/ob_4b0313_contacts.jpg"
                           style={{
-                              width: "600px",
+                              width: "1000px",
+                              height: "300px",
                               boxShadow: " 20px 0 20px 0",
                           }}
                       />

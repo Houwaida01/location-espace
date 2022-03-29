@@ -1,5 +1,6 @@
 import axios from "axios"
-import { FAIL, FAIL_USER, GET_USER, LOAD, LOAD_USER, LOG_OUT, SIGN_IN } from "../actions types/Admin"
+import { FAIL, FAIL_ANNONCE, FAIL_USER, GET_ANNONCE, GET_USER, LOAD, LOAD_ANNONCE, LOAD_USER, LOG_OUT, SIGN_IN } from "../actions types/Admin"
+
 
 //SIGN IN && SIGN UP && LOG OUT
 // export const signup=(newAdmin)=>async(dispatch)=>{ 
@@ -77,3 +78,23 @@ export const getUser = () => async (dispatch) => {
           
       }
   }
+
+  //get all annonce
+ export const getAnnonc = () => async (dispatch) => {
+  dispatch({ type: LOAD_ANNONCE });
+  try {
+    let result = await axios.get("/api/admin/all");
+    dispatch({ type: GET_ANNONCE, payload: result.data });
+  } catch (error) {
+    dispatch({ type: FAIL_ANNONCE, payload: error.response });
+  }
+};
+//delete annonce
+export const deleteAnnonc = (id) => async (dispatch) => {
+  try {
+    await axios.delete(`/api/admin/deleteAnnonce/${id}`);
+    dispatch(getAnnonc());
+  } catch (error) {
+    dispatch({ type: FAIL_ANNONCE, payload: error.response });
+  }
+};

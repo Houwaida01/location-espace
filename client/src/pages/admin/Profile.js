@@ -4,11 +4,11 @@ import { Navigate } from 'react-router-dom'
 import {Spinner} from 'react-bootstrap'
 function Profile() {
   const load=useSelector(state=>state.adminReducer.load)
-  const isAuth=useSelector(state=>state.adminReducer.isAuth)
+  const isAuthad=useSelector(state=>state.adminReducer.isAuthad)
   const admin=useSelector(state=>state.adminReducer.admin)
   return (
     <div >
-    {load?<Spinner animation="border" variant="primary" />:isAuth? 
+    {load?<Spinner animation="border" variant="primary" />:isAuthad? 
     <div style={{ textAlign: "center" }}>
       <h1 style={{
                     fontStyle: "italic",

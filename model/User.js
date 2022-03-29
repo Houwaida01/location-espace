@@ -20,5 +20,6 @@ const userSchema = new Schema({
     required: true,
   },
   tel: Number,
+  
 });
 module.exports = User = mongoose.model("/user", userSchema);

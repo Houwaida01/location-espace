@@ -2,7 +2,12 @@
 const express = require("express");
 const { signup, signin, deleteUser } = require("../controllers/user");
 const isAuth = require("../middleware/isAuthUser");
-const { registerValidation, validation, loginValidation, modifyUserValidation } = require("../middleware/validator");
+const {
+  registerValidation,
+  validation,
+  loginValidation,
+  modifyUserValidation,
+} = require("../middleware/validator");
 
 //importation router
 const router = express.Router();
@@ -11,7 +16,7 @@ const router = express.Router();
 const annonce = require("../model/Annonce");
 
 //importation user Schema
-const user=require("../model/User")
+const user = require("../model/User");
 
 //CRUD
 /**
@@ -26,14 +31,14 @@ router.post("/add", async (req, res) => {
       annoncementDescription,
       annoncementLocation,
       annoncementPicture,
-      annoncementExpo
+      annoncementExpo,
     } = req.body;
     const newAnnonce = new annonce({
       annoncementOwner,
       annoncementDescription,
       annoncementLocation,
       annoncementPicture,
-      annoncementExpo : new Date()
+      annoncementExpo,
     });
     await newAnnonce.save();
     return res.status(200).send({ msg: "the annonce added", newAnnonce });
@@ -93,19 +98,42 @@ router.delete("/deleteAnnonce/:_id", async (req, res) => {
     return res.status(400).send({ msg: "can not deleted annonce", error });
   }
 });
-
 /**
- * methode:update user
- * path:http://localhost:5000/api/user/editUser/:_id
+ * methode:get one user
+ * path:http://localhost:5000/api/user/one/:_id
+ * req.params
+ */
+ router.get("/one/:_id", async (req, res) => {
+  try {
+    const { idUser } = req.params;
+    const FoundUser = await user.findOne({ _id });
+    return res.status(200).send({ msg: "the user found", FoundUser });
+  } catch (error) {
+    return res.status(400).send({ msg: "can not found the user", error });
+  }
+});
+/**
+ * methode:get ALL
+ * path:http://localhost:5000/api/user/all
+ */
+ router.get("/all",async(req,res)=>{
+  try {
+      const listUser = await user.find();
+      return res.status(200).send({ msg: "this is the list of user", listUser });
+    } catch (error) {
+      return res.status(400).send({ msg: "can not show the list", error });
+    }
+})
+/**
+ * methode:update self
+ * path:http://localhost:5000/api/user/editSelf/:_id
  * req.params && req.body
  */
- router.put("/editUser/:_id",isAuth,modifyUserValidation, async (req, res) => {
+router.put("/editSelf/:_id", async (req, res) => {
   try {
     const { _id } = req.params;
-    const {name,email,password,adresse,tel} = req.body;
-    const editUser = await user.updateOne(
-      { _id },{ $set: { ...req.body } }
-    );
+    const { name, email, password, adresse, tel } = req.body;
+    const editUser = await user.updateOne({ _id }, { $set: { ...req.body } });
     return res.status(200).send({ msg: "I ve updated", editUser });
   } catch (error) {
     return res.status(400).send({ msg: "I m not able to update", error });
@@ -113,17 +141,17 @@ router.delete("/deleteAnnonce/:_id", async (req, res) => {
 });
 
 /**
- * methode:delete user
- * path:http://localhost:5000/api/user/deleteUser/:_id
+ * methode:delete self
+ * path:http://localhost:5000/api/user/deleteSelf/:_id
  * req.params
  */
- router.delete("/deleteUser/:_id", isAuth, modifyUserValidation, deleteUser);
+router.delete("/deleteSelf/:_id", deleteUser);
 
 //sign up sign in
-router.post("/signup",registerValidation(),validation, signup);
-router.post("/signin",loginValidation(),validation, signin);
+router.post("/signup", registerValidation(), validation, signup);
+router.post("/signin", loginValidation(), validation, signin);
 router.get("/current", isAuth, (req, res) => {
-  res.send({...req.user,isAdmin:false});
+  res.send({ ...req.user, isAdmin: false });
 });
 
 module.exports = router;

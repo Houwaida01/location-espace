@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { signin } from '../../redux/actions/Admin'
 
 function SignInAdmin() {
-    const dispatch=useDispatch()
+  const dispatch=useDispatch()
   const [newAdmin, setNewAdmin] = useState({})
   const handleChange=(e)=>{
   setNewAdmin({...newAdmin,[e.target.name]:e.target.value})
@@ -17,7 +17,6 @@ function SignInAdmin() {
         flexWrap: "wrap",
         width: "300px",
         paddingLeft: "500px",
-  
         textAlign: "left",
         paddingBottom: "250px",
         paddingTop: "50px",

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/actions/Admin";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 function AddUser() {
   const dispatch = useDispatch();
@@ -32,49 +31,47 @@ function AddUser() {
     >
       <div className="Container" id="container">
         <form>
-          <h2>New User</h2>
-          <label htmlFor="UserName">Nom:</label>
+          <h2>Add New User</h2>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="UserName">Nom :</label>
           <input
             type="text"
             name="name"
             placeholder="enter the user Name"
             onChange={handleChange}
           />
-          <label htmlFor="email">Email:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="email">Email :</label>
           <input
             type="email"
             name="email"
             placeholder="enter the user Email"
             onChange={handleChange}
           />
-          <label htmlFor="password">Password:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="password">Password :</label>
           <input
             type="password"
             name="password"
             placeholder="enter the user Password"
             onChange={handleChange}
           />
-          <label htmlFor="adresse">Adresse:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="adresse">Adresse :</label>
           <input
             type="text"
             name="adresse"
             placeholder="enter the user Adress"
             onChange={handleChange}
           />
-          <label htmlFor="tel">Phone:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="tel">Phone :</label>
           <input
             type="tel"
             name="tel"
             placeholder="enter the user Phone"
             onChange={handleChange}
           />
-          <Link to="/">
-            <Button
-              style={{ textAlign: "center", margin: "20px" }}
-              onClick={handleAdd}
-            >
-              Envoyer
-            </Button>
+          <Link to="/admin/listuser">
+           <button style={{ textAlign: "center", margin: "20px" }}
+              onClick={handleAdd}>
+                Envoyer
+           </button> 
           </Link>
         </form>
       </div>

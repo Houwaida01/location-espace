@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useMatch } from "react-router-dom";
-import {Button} from 'react-bootstrap'
 import { editAnnonce } from "../../redux/actions/User";
 function EditAnnonce() {
-  const match = useMatch("/editannonce/:id");
+  const match = useMatch('/user/editannonce/:id');
   const dispatch = useDispatch();
   const [newAnnonc, setNewAnnonc] = useState({
     annoncementOwner: "",
@@ -33,49 +32,49 @@ function EditAnnonce() {
     >
       <div className="Container" id="container">
         <form>
-          <h2>Edit Annonce</h2>
-          <label htmlFor="annoncementOwner">Annoncement Owner:</label>
+          <h2>Edit Annonce</h2> <hr/>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementOwner">Annoncement Owner:</label>
           <input
             type="text"
             name="annoncementOwner"
             placeholder="Edit the annoncement Owner"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementDescription">Annoncement Description:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementDescription">Annoncement Description:</label>
           <input
             type="text"
             name="annoncementDescription"
             placeholder="Edit the annoncement Description"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementLocation">Annoncement Location:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementLocation">Annoncement Location:</label>
           <input
             type="text"
             name="annoncementLocation"
             placeholder="Edit the annoncement Location"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementPicture">Annoncement Picture:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementPicture">Annoncement Picture:</label>
           <input
             type="text"
             name="annoncementPicture"
             placeholder="Edit the annoncement Picture" 
             onChange={handleChange}
           />
-          <label htmlFor="annoncementExpo">Annoncement Expo:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementExpo">Annoncement Expo:</label>
           <input
             type="date"
             name="annoncementExpo"
             placeholder="Edit the annoncement Expo"
             onChange={handleChange}
           />
-          <Link to="/">
-            <Button
+          <Link to="/annonce">
+            <button
               style={{ textAlign: "center", margin: "20px" }}
               onClick={handleAdd}
             >
               Envoyer
-            </Button>
+            </button>
           </Link>
         </form>
       </div>

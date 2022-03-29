@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { Button } from "react-bootstrap";
 import { signup } from "../../redux/actions/User";
 
-const Signup = () => {
+const SignUpUser = () => {
     const [newUser, setNewUser] = useState({});
     const dispatch = useDispatch();
     const handleChange = (e) => {
       setNewUser({ ...newUser, [e.target.name]: e.target.value });
     };
-    return (
+    return ( 
         <div
             style={{
                 display: "flex",
@@ -58,21 +57,16 @@ const Signup = () => {
                     <input
                         type="number"
                         name="tel"
-                        placeholder="Enter your phone .."
+                        placeholder="Enter your phone .." 
                         onChange={handleChange}
                     />
                     <br />
-                    <Link to="/profile">
-                        <Button
-                            style={{ margin: "10px" }}
-                            onClick={() => dispatch(signup(newUser))}
-                        >
-                            S'inscrire
-                        </Button>
+                    <Link to="/profileuser">
+                        <button  style={{ margin: "10px" }} type="submit" onClick={()=>dispatch(signup(newUser))}> S'inscrire </button>
                     </Link>
                 </form>
             </div>
         </div>
     );
 };
-export default Signup;
+export default SignUpUser;

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addAnnonce } from "../../redux/actions/User";
-import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 function AddAnnonce() {
@@ -12,6 +11,7 @@ function AddAnnonce() {
     annoncementLocation: "",
     annoncementPicture: "",
     annoncementExpo: "",
+    idUser:localStorage.getItem('id_User')
   });
   const handleChange = (e) => {
     setNewAnnonce({ ...newAnnonce, [e.target.name]: e.target.value });
@@ -33,49 +33,55 @@ function AddAnnonce() {
     >
       <div className="Container" id="container">
         <form>
-          <h2>New Annoncement</h2>
-          <label htmlFor="annoncementOwner">Annoncement Owner:</label>
+          <h2>Add New Annonce</h2> <hr/>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementOwner">Annoncement Owner:</label>
           <input
             type="text"
             name="annoncementOwner"
             placeholder="enter the annoncement Owner"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementDescription">Annoncement Description:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementDescription">Annoncement Description:</label>
           <input
             type="text"
             name="annoncementDescription"
             placeholder="enter the annoncement Description"
             onChange={handleChange}
           />
-           <label htmlFor="annoncementLocation">Annoncement Location:</label>
+           <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementLocation">Annoncement Location:</label>
           <input
             type="text"
             name="annoncementLocation"
             placeholder="enter the annoncement Location"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementPicture">Annoncement Picture:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementPicture">Annoncement Picture:</label>
           <input
             type="text"
             name="annoncementPicture"
             placeholder="enter the annoncement Picture"
             onChange={handleChange}
           />
-          <label htmlFor="annoncementExpo">Annoncement Expo:</label>
+          <label style={{ fontWeight:"bold", fontFamily:"cursive", fontSize:"20px"}} htmlFor="annoncementExpo">Annoncement Expo:</label>
           <input
             type="date"
             name="annoncementExpo"
             placeholder="enter the annoncement Expo"
             onChange={handleChange}
           />
-          <Link to="/">
-            <Button
+           <input
+            type="text"
+            name="idUser"
+           hidden
+            onChange={handleChange}
+          />
+          <Link to="/myannonce">
+            <button
               style={{ textAlign: "center", margin: "20px" }}
               onClick={handleAdd}
             >
               Envoyer
-            </Button>
+            </button>
           </Link>
         </form>
       </div>

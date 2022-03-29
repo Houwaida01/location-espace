@@ -22,12 +22,14 @@ h1 {
   color: #fff;
   margin: 40px 0 20px 0;
   text-align: center;
+  /* color: skyblue; */
 }
 img {
   width: 50%;
   height: 50%;
-   
+ 
 }
+
 p {
    font-size: 20px;
 }
@@ -67,4 +69,54 @@ form {
   transition: all 0.3s;
 }
 
-
+nav{
+  display: inline;
+  color: purple;
+  padding: 0 15px;
+  margin: 0 auto;
+  /* color: palevioletred; */
+}
+nav a {
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+}
+nav:hover,
+nav a:hover{
+  /* background-color: white; */
+  color: plum;
+}
+.nav{
+  display: flex;
+  justify-content: flex-end;
+  justify-content: space-around;
+  position: sticky;
+  top: 0;
+  background: #fff;
+  border-bottom: 3px solid white;
+  left: 0;
+  width: 100%
+} 
+/* a{
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: space-around;
+  font-family: Roboto,Arial;
+  color: #747474;
+  padding-top: 70px;
+  justify-content: flex-end;
+  margin: 100px;
+} */
+li{
+  display: inline;
+  /* color: purple; */
+  padding: 0 15px;
+  margin: 0 auto;
+  /* color: palevioletred; */
+}
+li a {
+  text-decoration: none;
+  color: grey;
+  font-size: 20px;
+}

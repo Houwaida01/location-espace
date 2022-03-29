@@ -1,7 +1,7 @@
 //importation
 const express = require("express");
-const { signup, signin } = require("../controllers/admin");
-const isAuth = require("../middleware/isAuth");
+const { signin, signup } = require("../controllers/admin");
+const isAuthad = require("../middleware/isAuthAdmin");
 const { registerValidation, validation, loginValidation } = require("../middleware/validator");
 
 //importation router
@@ -77,6 +77,20 @@ router.get("/",async(req,res)=>{
       }
   })
   /**
+ * methode:get ALL annonce
+ * path:http://localhost:5000/api/admin/all
+ */
+router.get("/all", async (req, res) => {
+  try {
+    const annonceList = await annonce.find();
+    return res
+      .status(200)
+      .send({ msg: "this is the list of annonce", annonceList });
+  } catch (error) {
+    return res.status(400).send({ msg: "can not show the list", error });
+  }
+});
+  /**
    * methode:delete annonce
    * path:http://localhost:5000/api/admin/deleteAnnonce/:_id
    * req.params
@@ -97,7 +111,7 @@ router.get("/",async(req,res)=>{
 
 router.post("/signup",registerValidation(),validation, signup);
 router.post("/signin",loginValidation(),validation, signin);
-router.get("/current",isAuth,(req,res)=>{
+router.get("/current",isAuthad,(req,res)=>{
     res.send(req.admin)
 })
 

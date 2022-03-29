@@ -16,7 +16,6 @@ function SigninUser() {
       flexWrap: "wrap",
       width: "300px",
       paddingLeft: "500px",
-
       textAlign: "left",
       paddingBottom: "250px",
       paddingTop: "50px",
@@ -33,8 +32,8 @@ function SigninUser() {
     <input type="password" placeholder="Enter Your Password" name="password" onChange={handleChange} />
     <br />
    <div>
-   <Link to={'/profile'}> <button  style={{ margin: "10px" }} type="submit" onClick={()=>dispatch(signin(newUser))}> S'identifier </button> </Link> 
-    {/* <Link to={'/signup'}> <button  style={{ margin: "10px" }} type="submit"> Sign Up </button> </Link>  */}
+   <Link to={'/profileuser'}> <button  style={{ margin: "10px" }} type="submit" onClick={()=>dispatch(signin(newUser))}> S'identifier </button> </Link> 
+    
    </div>
     
       </form>

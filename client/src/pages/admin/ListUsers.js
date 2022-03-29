@@ -1,11 +1,12 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../redux/actions/Admin";
+import UserCard from "./UserCard";
 
 function ListUsers() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.adminReducer.userList);
-  console.log(users)
+  // console.log(users)
   const load = useSelector((state) => state.adminReducer.load);
   useEffect(() => {
     dispatch(getUser());
@@ -13,8 +14,17 @@ function ListUsers() {
 
   return (
     <div>
-        <h1>hhhhhhhhhhhhhhh</h1>
-      {/* {load ? <h1>loaaading</h1> : users?.map((el) => <h1> {el.name} </h1>)} */}
+  <h6 style={{ textAlign:"center" , fontSize:"35px" , color:"palevioletred"}}> 
+                Liste de users: {users.length}
+        </h6> 
+    
+    <div style={{
+      display: "flex",
+      flexWrap: "wrap",
+      justifyContent: "space-around",
+  }}>
+      {load ? <h1>loaaading</h1> : users?.map((el) => <UserCard user={el} key={el._id} /> )}
+    </div>
     </div>
   );
 }

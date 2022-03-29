@@ -8,3 +8,9 @@ export const FAIL = "FAIL";
 export const GET_ANNONCE = "GET_ANNONCE";
 export const LOAD_ANNONCE = "LOAD_ANNONCE";
 export const FAIL_ANNONCE = "FAIL_ANNONCE";
+
+//user
+export const GET_USER = "GET_USER";
+export const LOAD_USER = "LOAD_USER";
+export const FAIL_USER = "FAIL_USER";
+export const GET_USER_BY_ID = "GET_USER_BY_ID";
